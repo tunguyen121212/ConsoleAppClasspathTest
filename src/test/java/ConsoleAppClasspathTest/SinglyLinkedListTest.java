@@ -1,8 +1,7 @@
 package ConsoleAppClasspathTest;
 
 import org.junit.jupiter.api.Assertions;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.DisplayName;
@@ -10,21 +9,27 @@ import org.junit.jupiter.api.BeforeAll;
 
 import ConsoleAppClasspathTest.Node;
 import ConsoleAppClasspathTest.SinglyLinkedList;
+import org.junit.jupiter.api.function.Executable;
 
 import java.util.InputMismatchException;
 
-public class SinglyLinkedListTest {
-    private final SinglyLinkedList sList = new SinglyLinkedList();
 
-    @BeforeAll
-    static void initAll() {}
+
+@DisplayName(" Singly linked list test ")
+public class SinglyLinkedListTest {
+    private final SinglyLinkedList ACTUAL = new SinglyLinkedList();
 
     @Test
-    @DisplayName("Singly linked list putFirst test")
+    @DisplayName(" putFirstTest input data ")
     void putFirstTest() {
-        //Exception exceptionPutFirst = assertDoesNotThrow();
-        //assertThrows(InputMismatchException.class, () -> {throw new InputMismatchException();});
-        final InputMismatchException thrown = assertThrows(InputMismatchException.class, () -> { sList.putFirst("QWE"); } );
-        assertEquals(" Please enter value valid!!! ", thrown.getMessage());
+        final Node EXPECTED = new Node(1);
+        ACTUAL.putFirst(1);
+        assertEquals(EXPECTED.data, ACTUAL.head.data);
+    }
+
+    @Test
+    @DisplayName(" putLastTest input data ")
+    void putLastTest() {
+        final Node EXPECTED = new Node(1);
     }
 }
