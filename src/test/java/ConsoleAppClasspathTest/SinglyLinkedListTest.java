@@ -14,101 +14,88 @@ public class SinglyLinkedListTest {
     private final SinglyLinkedList ACTUAL = new SinglyLinkedList();
 
     @Test
-    @DisplayName(" viewMainMenuTest ")
-    void exceptViewMainMenuTest() {
+    @DisplayName(" Input Exception Test")
+    void exceptionInputTest() {
         Exception exception = assertThrows(NumberFormatException.class, () -> ACTUAL.putFirst(Integer.parseInt("QWE")));
         String expectedMessage = "For input string";
         String actualMessage = exception.getMessage();
 
         assertTrue(actualMessage.contains(expectedMessage));
+    }
+
+    @Test
+    @DisplayName(" viewMainMenuTest ")
+    void exceptViewMainMenuTest() {
+        exceptionInputTest();
     }
 
     @Test
     @DisplayName(" viewInsertMenuTest ")
     void exceptViewInsertMenuTest() {
-        Exception exception = assertThrows(NumberFormatException.class, () -> ACTUAL.putFirst(Integer.parseInt("QWE")));
-        String expectedMessage = "For input string";
-        String actualMessage = exception.getMessage();
-
-        assertTrue(actualMessage.contains(expectedMessage));
+        exceptionInputTest();
     }
 
     @Test
     @DisplayName(" viewDeleteMenuTest ")
     void exceptViewDeleteMenuTest() {
-        Exception exception = assertThrows(NumberFormatException.class, () -> ACTUAL.putFirst(Integer.parseInt("QWE")));
-        String expectedMessage = "For input string";
-        String actualMessage = exception.getMessage();
-
-        assertTrue(actualMessage.contains(expectedMessage));
+        exceptionInputTest();
     }
 
     @Test
     @DisplayName(" putFirstTest ")
     void putFirstTest() {
+        exceptionInputTest();
+
         ACTUAL.putFirst(2);
         ACTUAL.putFirst(1);
+
         assertEquals(1, ACTUAL.head.data);
         assertEquals(2, ACTUAL.head.next.data);
-
-        Exception exception = assertThrows(NumberFormatException.class, () -> ACTUAL.putFirst(Integer.parseInt("QWE")));
-        String expectedMessage = "For input string";
-        String actualMessage = exception.getMessage();
-
-        assertTrue(actualMessage.contains(expectedMessage));
     }
 
     @Test
     @DisplayName(" putLastTest ")
     void putLastTest() {
+        exceptionInputTest();
+
         ACTUAL.putFirst(1);
         ACTUAL.putLast(2);
+
         assertEquals(2, ACTUAL.head.next.data);
         assertNull(ACTUAL.head.next.next);
-
-        Exception exception = assertThrows(NumberFormatException.class, () -> ACTUAL.putFirst(Integer.parseInt("QWE")));
-        String expectedMessage = "For input string";
-        String actualMessage = exception.getMessage();
-
-        assertTrue(actualMessage.contains(expectedMessage));
     }
 
     @Test
     @DisplayName(" putAtPosTest ")
     void putAtPosTest() {
+        exceptionInputTest();
+
         ACTUAL.putFirst(1);
         ACTUAL.putAtPos(2,1);
         ACTUAL.putLast(3);
+
         assertEquals(2, ACTUAL.head.next.data);
         assertEquals(3, ACTUAL.head.next.next.data);
-
-        Exception exception = assertThrows(NumberFormatException.class, () -> ACTUAL.putFirst(Integer.parseInt("QWE")));
-        String expectedMessage = "For input string";
-        String actualMessage = exception.getMessage();
-
-        assertTrue(actualMessage.contains(expectedMessage));
     }
 
     @Test
     @DisplayName(" putAfterTest ")
     void putAfterTest() {
+        exceptionInputTest();
+
         ACTUAL.putFirst(1);
         ACTUAL.putAfter(2, 1);
         ACTUAL.putLast(3);
 
         assertEquals(2, ACTUAL.head.next.data);
         assertEquals(3, ACTUAL.head.next.next.data);
-
-        Exception exception = assertThrows(NumberFormatException.class, () -> ACTUAL.putFirst(Integer.parseInt("QWE")));
-        String expectedMessage = "For input string";
-        String actualMessage = exception.getMessage();
-
-        assertTrue(actualMessage.contains(expectedMessage));
     }
 
     @Test
     @DisplayName(" putAfter with times ")
     void putAfterWithTimes() {
+        exceptionInputTest();
+
         ACTUAL.putFirst(1);
         ACTUAL.putFirst(1);
         ACTUAL.putAfter(2, 1, 2);
@@ -116,17 +103,13 @@ public class SinglyLinkedListTest {
 
         assertEquals(2, ACTUAL.head.next.next.data);
         assertEquals(3, ACTUAL.head.next.next.next.data);
-
-        Exception exception = assertThrows(NumberFormatException.class, () -> ACTUAL.putFirst(Integer.parseInt("QWE")));
-        String expectedMessage = "For input string";
-        String actualMessage = exception.getMessage();
-
-        assertTrue(actualMessage.contains(expectedMessage));
     }
 
     @Test
     @DisplayName(" delFirstTest ")
     void delFirstTest() {
+        exceptionInputTest();
+
         ACTUAL.putFirst(1);
         ACTUAL.putLast(2);
         ACTUAL.putLast(3);
@@ -134,35 +117,26 @@ public class SinglyLinkedListTest {
 
         assertEquals(2, ACTUAL.head.data);
         assertEquals(3, ACTUAL.head.next.data);
-
-        Exception exception = assertThrows(NumberFormatException.class, () -> ACTUAL.putFirst(Integer.parseInt("QWE")));
-        String expectedMessage = "For input string";
-        String actualMessage = exception.getMessage();
-
-        assertTrue(actualMessage.contains(expectedMessage));
     }
 
     @Test
     @DisplayName(" delLastTest ")
     void delLastTest() {
+        exceptionInputTest();
+
         ACTUAL.putFirst(1);
         ACTUAL.putLast(2);
         ACTUAL.putLast(3);
         ACTUAL.delLast();
 
-        //assertEquals(2, ACTUAL.head.next.data);
         assertNull(ACTUAL.head.next.next);
-
-        Exception exception = assertThrows(NumberFormatException.class, () -> ACTUAL.putFirst(Integer.parseInt("QWE")));
-        String expectedMessage = "For input string";
-        String actualMessage = exception.getMessage();
-
-        assertTrue(actualMessage.contains(expectedMessage));
     }
 
     @Test
     @DisplayName(" delAtPosTest ")
     void delAtPosTest() {
+        exceptionInputTest();
+
         ACTUAL.putFirst(1);
         ACTUAL.putLast(2);
         ACTUAL.putLast(3);
@@ -171,17 +145,13 @@ public class SinglyLinkedListTest {
 
         assertEquals(3, ACTUAL.head.next.data);
         assertEquals(4, ACTUAL.head.next.next.data);
-
-        Exception exception = assertThrows(NumberFormatException.class, () -> ACTUAL.putFirst(Integer.parseInt("QWE")));
-        String expectedMessage = "For input string";
-        String actualMessage = exception.getMessage();
-
-        assertTrue(actualMessage.contains(expectedMessage));
     }
 
     @Test
     @DisplayName(" delAfter ")
     void delAfterTest() {
+        exceptionInputTest();
+
         ACTUAL.putFirst(1);
         ACTUAL.putLast(2);
         ACTUAL.putLast(3);
@@ -190,17 +160,13 @@ public class SinglyLinkedListTest {
 
         assertEquals(2, ACTUAL.head.next.data);
         assertEquals(4, ACTUAL.head.next.next.data);
-
-        Exception exception = assertThrows(NumberFormatException.class, () -> ACTUAL.putFirst(Integer.parseInt("QWE")));
-        String expectedMessage = "For input string";
-        String actualMessage = exception.getMessage();
-
-        assertTrue(actualMessage.contains(expectedMessage));
     }
 
     @Test
     @DisplayName(" delAfter with times ")
     void delAfterWithTimes() {
+        exceptionInputTest();
+
         ACTUAL.putFirst(1);
         ACTUAL.putLast(2);
         ACTUAL.putLast(2);
@@ -216,6 +182,8 @@ public class SinglyLinkedListTest {
     @Test
     @DisplayName(" delByKeyTest ")
     void delByKeyTest() {
+        exceptionInputTest();
+
         ACTUAL.putFirst(1);
         ACTUAL.putLast(2);
         ACTUAL.putLast(3);
@@ -230,6 +198,8 @@ public class SinglyLinkedListTest {
     @Test
     @DisplayName(" delByKey with times ")
     void delByKeyWithTimes() {
+        exceptionInputTest();
+
         ACTUAL.putFirst(1);
         ACTUAL.putLast(2);
         ACTUAL.putLast(2);
