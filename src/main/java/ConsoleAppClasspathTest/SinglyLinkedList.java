@@ -51,6 +51,7 @@ public class SinglyLinkedList {
             }
         } catch (InputMismatchException e) {
             System.out.println(" Please enter value valid!!! ");
+            //e.printStackTrace();
         }
         return  true;
     }
@@ -352,7 +353,9 @@ public class SinglyLinkedList {
     void putAtPos(int data, int pos) {
         Node newNode = new Node(data);
         if (head == null) {
-            System.out.println("\n List is empty!!! \n");
+            //System.out.println("\n List is empty!!! \n");
+            newNode.next = null;
+            head = newNode;
         } else {
             Node temp = head;
             for (int i=1 ; i<pos ; i++ ) {
@@ -372,7 +375,9 @@ public class SinglyLinkedList {
         Node temp = head;
         int check = 0;
         if (head == null ) {
-            System.out.println("\n List is empty!!! \n");
+            //System.out.println("\n List is empty!!! \n");
+            newNode.next = null;
+            head = newNode;
         } else {
             while (temp != null) {
                 if (temp.data == key) {
@@ -394,7 +399,9 @@ public class SinglyLinkedList {
         int check = 0;
         int count = 0;
         if (head == null ) {
-            System.out.println("\n List is empty!!! \n");
+            //System.out.println("\n List is empty!!! \n");
+            newNode.next = null;
+            head = newNode;
         } else {
             while (temp != null) {
                 if (temp.data == key) {
@@ -419,7 +426,7 @@ public class SinglyLinkedList {
             System.out.println(" Delete nothing!!! ");
         } else {
             head = temp.next;
-            System.out.println(" Deleted!!! ");
+            //System.out.println(" Deleted!!! ");
         }
     }
 
@@ -437,7 +444,7 @@ public class SinglyLinkedList {
             }
             temp1.next = null;
         }
-        System.out.println(" Deleted!!! ");
+        //System.out.println(" Deleted!!! ");
     }
 
     void delAtPos(int pos) {
